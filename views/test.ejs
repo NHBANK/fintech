@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+            <title>Document</title>
+        </head>
+        <body>
+            <h1>안녕하세요</h1>
+            ID : <input type="text" id="userId"> <br><br>
+            PW : <input type="text" id="userPassword"> <br><br>
+            <button type="button" id="signup8tn" class="bg-blue-600 text-white px-4 py-1 float-right">회원가입</button>
+        </body>
+        <script
+            src="https://code.jquery.com/jquery-2.2.4.js"
+            integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+            crossorigin="anonymous">
+            </script>
+        <script>
+            console.log("Page is loaded");//console에 찍기만 한거임. F12누르고 확인 ㄱ
+            $("#signup8tn").click(function(){
+                console.log("btn is clicked");
+                console.log($("#userId").val());
+                console.log($("#userPassword").val());
+                var userId = $("#userId").val();
+                var userPassword=$("#userPassword").val();
+                $.ajax({
+                url:'http://localhost:3000/join',
+                type : 'POST',
+                data : {
+                        userId : userId, //object니까 : 로 지정
+                        userPassword : userPassword
+                    },
+                    success:function(data){
+                        console.log(data);
+                    }
+                })
+            });
+        </script>
+    </html>

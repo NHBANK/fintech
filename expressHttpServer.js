@@ -19,8 +19,19 @@ app.get('/member', function (req, res) {
     res.send('member page')
 })
 
+
+app.get('/join', function(req,res){
+    console.log(req.query.userId);
+    console.log(req.query.userPassword);
+    console.log(req.query.userName);
+    res.json(1);
+})
+
+
 app.post('/join', function(req,res){
-    console.log(req.body)
+    var userId = req.body.userId;
+    var userPassword = req.body.userPassword;
+    console.log(req.body)//req.body 안에 정보를 숨겨서 보냄
 })
 
 app.listen(3000)

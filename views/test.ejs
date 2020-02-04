@@ -10,6 +10,7 @@
             <h1>안녕하세요</h1>
             ID : <input type="text" id="userId"> <br><br>
             PW : <input type="text" id="userPassword"> <br><br>
+            E-mail : <input type="text" id="email"> <br><br>
             <button type="button" id="signup8tn" class="bg-blue-600 text-white px-4 py-1 float-right">회원가입</button>
         </body>
         <script
@@ -23,14 +24,17 @@
                 console.log("btn is clicked");
                 console.log($("#userId").val());
                 console.log($("#userPassword").val());
+                console.log($("#userName").val());
                 var userId = $("#userId").val();
                 var userPassword=$("#userPassword").val();
+                var name=$("#userName").val();
                 $.ajax({
                 url:'http://localhost:3000/join',
                 type : 'POST',
                 data : {
                         userId : userId, //object니까 : 로 지정
-                        userPassword : userPassword
+                        userPassword : userPassword,
+                        userName : userName
                     },
                     success:function(data){
                         console.log(data);
